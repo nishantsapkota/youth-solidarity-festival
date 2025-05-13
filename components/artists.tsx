@@ -1,12 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, Music, Instagram, Facebook, Youtube } from "lucide-react"
+import { Music, Instagram, Youtube } from "lucide-react"
 
 export default function Artists() {
   const [ref, inView] = useInView({
@@ -28,7 +27,7 @@ export default function Artists() {
           alt: "John Rai and The Locals Photo"
         }
       ],
-      description: "One of Nepal’s most soulful voices, known for his heartfelt lyrics and deeply emotional musical expression.",
+      description: "One of Nepal's most soulful voices, known for his heartfelt lyrics and deeply emotional musical expression.",
       socialMedia: {
         instagram: "https://www.instagram.com/johnrai______/",
         youtube: "https://www.youtube.com/@JohnChamlingTV",
@@ -47,7 +46,7 @@ export default function Artists() {
           alt: "The Elements Photo"
         }
       ],
-      description: "One of Nepal’s most loved indie bands, known for their honest lyrics and a sound that blends folk and rock.",
+      description: "One of Nepal's most loved indie bands, known for their honest lyrics and a sound that blends folk and rock.",
       socialMedia: {
         instagram: "https://www.instagram.com/elements.the/",
         youtube: "https://www.youtube.com/@TheElementsNepal",
@@ -85,38 +84,13 @@ export default function Artists() {
           alt: "Gauley Bhai Photo"
         }
       ],
-      description: "One of Nepal’s most loved indie bands, known for their honest lyrics and a sound that blends folk and rock.",
+      description: "One of Nepal's most loved indie bands, known for their honest lyrics and a sound that blends folk and rock.",
       socialMedia: {
         instagram: "https://www.instagram.com/gauleybhai/",
         youtube: "https://www.youtube.com/@gauleybhai",
       },
     }, 
   ]
-
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [direction, setDirection] = useState(0)
-  
-  // Create a circular array of visible artists
-  const getVisibleArtists = () => {
-    const result = [];
-    for (let i = 0; i < 3; i++) {
-      const index = (currentIndex + i) % artists.length;
-      result.push(artists[index]);
-    }
-    return result;
-  }
-
-  const nextSlide = () => {
-    setDirection(1);
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % artists.length);
-  }
-
-  const prevSlide = () => {
-    setDirection(-1);
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + artists.length) % artists.length);
-  }
-
-  const visibleArtists = getVisibleArtists();
 
   return (
     <section id="artists" className="bg-gray-900 py-20 text-white">
@@ -133,70 +107,9 @@ export default function Artists() {
           <p className="mt-4 text-xl text-gray-300">Experience amazing performances by Nepal's top artists</p>
         </motion.div>
 
-        <div className="relative">
-          <div className="flex items-center justify-between">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute left-0 top-1/2 z-10 -translate-y-1/2 text-white hover:bg-white/10 md:-left-12"
-              onClick={prevSlide}
-              aria-label="Previous artists"
-            >
-              <ChevronLeft className="h-8 w-8" />
-            </Button>
-
-            <div className="w-full overflow-hidden">
-              <AnimatePresence initial={false} custom={direction} mode="popLayout">
-                <motion.div
-                  key={currentIndex}
-                  custom={direction}
-                  initial={{ 
-                    x: direction > 0 ? 300 : -300,
-                    opacity: 0
-                  }}
-                  animate={{ 
-                    x: 0,
-                    opacity: 1
-                  }}
-                  exit={{ 
-                    x: direction < 0 ? 300 : -300,
-                    opacity: 0
-                  }}
-                  transition={{ duration: 0.5 }}
-                  className="grid gap-6 md:grid-cols-3"
-                >
-                  {visibleArtists.map((artist) => (
-                    <ArtistCard key={artist.id} artist={artist} />
-                  ))}
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute right-0 top-1/2 z-10 -translate-y-1/2 text-white hover:bg-white/10 md:-right-12"
-              onClick={nextSlide}
-              aria-label="Next artists"
-            >
-              <ChevronRight className="h-8 w-8" />
-            </Button>
-          </div>
-        </div>
-
-        <div className="mt-8 flex justify-center gap-2">
-          {Array.from({ length: artists.length }).map((_, index) => (
-            <button
-              key={index}
-              className={`h-2 w-8 rounded-full ${
-                currentIndex === index ? "bg-primary" : "bg-gray-600"
-              }`}
-              onClick={() => {
-                setDirection(index > currentIndex ? 1 : -1);
-                setCurrentIndex(index);
-              }}
-              aria-label={`Go to artist ${index + 1}`}
-            ></button>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {artists.map((artist) => (
+            <ArtistCard key={artist.id} artist={artist} />
           ))}
         </div>
       </div>
