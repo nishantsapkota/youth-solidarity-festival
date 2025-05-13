@@ -4,12 +4,85 @@ import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import Image from "next/image"
 import { MapPin, Calendar, Users } from "lucide-react"
+import { useState, useEffect } from "react"
 
 export default function Venue() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
+
+  // State for map loading
+  const [mapLoaded, setMapLoaded] = useState(false)
+
+  // Kathmandu University coordinates
+  const universityLocation = {
+    lat: 27.6195,
+    lng: 85.5386,
+    name: "Kathmandu University, Dhulikhel"
+  }
+
+  // Initialize Leaflet map
+  useEffect(() => {
+    // Only run on client-side
+    if (typeof window === "undefined") return;
+
+    // Function to load Leaflet CSS
+    const loadLeafletCSS = () => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';
+      document.head.appendChild(link);
+    };
+
+    // Function to load Leaflet JS
+    const loadLeafletJS = () => {
+      return new Promise((resolve) => {
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
+        script.onload = resolve;
+        document.body.appendChild(script);
+      });
+    };
+
+    // Function to initialize map
+    const initMap = () => {
+      const L = window.L;
+      if (!L) return;
+
+      const mapContainer = document.getElementById('ku-map');
+      if (!mapContainer) return;
+
+      // Create map centered on Kathmandu University
+      const map = L.map('ku-map').setView([universityLocation.lat, universityLocation.lng], 15);
+
+      // Add OpenStreetMap tiles
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      // Add marker for Kathmandu University
+      L.marker([universityLocation.lat, universityLocation.lng])
+        .addTo(map)
+        .bindPopup(universityLocation.name)
+        .openPopup();
+
+      setMapLoaded(true);
+    };
+
+    const setupMap = async () => {
+      loadLeafletCSS();
+      await loadLeafletJS();
+      initMap();
+    };
+
+    setupMap();
+
+    // Cleanup function
+    return () => {
+      // Clean up if needed
+    };
+  }, []);
 
   return (
     <section id="venue" className="bg-gray-100 py-20">
@@ -34,12 +107,28 @@ export default function Venue() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative h-[400px] overflow-hidden rounded-lg shadow-xl"
           >
-            <Image
-              src="/placeholder.svg?height=800&width=1200"
-              alt="Kathmandu University Campus"
-              fill
-              className="object-cover transition-transform duration-500 hover:scale-105"
-            />
+            {/* Map container */}
+            <div id="ku-map" className="h-full w-full z-10 border-4 border-gray-300"></div>
+            
+            {/* Fallback if map isn't loaded */}
+            {!mapLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
+                <p className="text-gray-600">Loading map...</p>
+              </div>
+            )}
+            
+            {/* Google Maps link button */}
+            <div className="absolute bottom-4 right-4 z-20">
+              <a 
+                href="https://maps.app.goo.gl/UHbKMAFdKrZzv6uv7" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-sm font-medium text-gray-800 shadow-md transition-colors hover:bg-gray-100"
+              >
+                <MapPin className="h-4 w-4 text-primary" />
+                Find in Google Maps
+              </a>
+            </div>
           </motion.div>
 
           <motion.div
@@ -106,4 +195,3 @@ export default function Venue() {
     </section>
   )
 }
-
