@@ -47,7 +47,7 @@ function CounterCard({ icon, value, label }) {
     if (!inViewport) return
 
     let start = 0
-    const end = 10000
+    const end = value;
     const duration = 2000
     const increment = end / (duration / 16)
 
@@ -259,10 +259,10 @@ export default function About() {
         >
           <h3 className="text-2xl font-bold text-center text-gray-800 mb-8">Festival Highlights</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <CounterCard icon={<Music className="h-8 w-8 text-primary" />} value={12} label="Live Performances" />
-            <CounterCard icon={<Users className="h-8 w-8 text-primary" />} value={3000} label="Expected Attendees" />
-            <CounterCard icon={<Calendar className="h-8 w-8 text-primary" />} value={3} label="Days of Celebration" />
-            <CounterCard icon={<Store className="h-8 w-8 text-primary" />} value={60} label="Food & Activity Stalls" />
+            <CounterCard icon={<Music className="h-8 w-8 text-primary" />} value={4} label="Live Performances" />
+            <CounterCard icon={<Users className="h-8 w-8 text-primary" />} value={6000 } label="Expected Attendees" />
+            <CounterCard icon={<Calendar className="h-8 w-8 text-primary" />} value={2} label="Days of Celebration" />
+            <CounterCard icon={<Store className="h-8 w-8 text-primary" />} value={40} label="Food & Activity Stalls" />
           </div>
         </motion.div>
 
