@@ -132,7 +132,7 @@ function ArtistCard({ artist }) {
 
   return (
     <Card className="overflow-hidden bg-gray-800 transition-transform duration-300 hover:-translate-y-2">
-      <div className="relative h-[300px] w-full overflow-hidden">
+      <div className="relative h-[250px] w-full overflow-hidden">
         {artist.images.map((image, index) => (
           <div
             key={index}
