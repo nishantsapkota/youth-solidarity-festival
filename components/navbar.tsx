@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
@@ -45,8 +46,14 @@ export default function Navbar() {
           <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
 
           <Link href="/" className="flex items-center group z-10">
-            <div className="mr-2 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-300">
-              <span className="text-primary font-bold text-lg">YSF</span>
+            <div className="mr-2 h-14 w-20 rounded-full overflow-hidden border-2 border-primary group-hover:scale-110 transition-transform duration-300">
+              <Image
+                src="/Youth solidarity fest red (5).png"
+                alt="YSF Logo"
+                width={56}
+                height={56}
+                className="w-full h-full object-fit"
+              />
             </div>
             <span
               className={`text-2xl font-bold ${

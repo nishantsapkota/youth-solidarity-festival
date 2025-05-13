@@ -16,8 +16,7 @@ export default function Hero() {
   const controls = useAnimation()
   const particlesInit = useRef(false)
 
-  const backgroundImage =
-    "https://scontent.fktm7-1.fna.fbcdn.net/v/t39.30808-6/469990892_420099277847097_7898263344321235436_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHkuZCg7X7tZweOil4phE1oJ7py5NyKS1cnunLk3IpLV1TJtnuVE63i0unpysjRCoFbW3y1JTpvDU5eBh2XxcfE&_nc_ohc=MCyNd78r7FUQ7kNvgGYgSjI&_nc_oc=AdnAODeNGnvMazg26GaW_CfWYKDI-22U7gyzA8ImT-cSrkCw2b-xS2DMhGZP8qVa5YwZjDuMqlvjC0Ub1_dGb_R6&_nc_zt=23&_nc_ht=scontent.fktm7-1.fna&_nc_gid=roPKNU70cKCs3qNQC8y54Q&oh=00_AYHPVEONBAv2FLE-5lyJSTjrTuSso48XOaKsSaYY6hfQbw&oe=67F04FED"
+  const backgroundImage = "/coverpage.jpg"
 
   useEffect(() => {
     const handleScroll = () => {
