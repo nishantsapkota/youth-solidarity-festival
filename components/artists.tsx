@@ -17,70 +17,45 @@ export default function Artists() {
   const artists = [
     {
       id: 1,
-      name: "ASM",
+      name: "John Rai and The Locals",
       image: "/placeholder.svg?height=500&width=500",
       description: "One of Nepal's most popular hip-hop artists known for his unique style and powerful lyrics.",
       socialMedia: {
         instagram: "#",
-        facebook: "#",
-        youtube: "#",
+        youtube: "https://www.youtube.com/@JohnChamlingTV",
       },
     },
     {
       id: 2,
-      name: "Nabin K. Bhattarai",
+      name: "The Elements",
       image: "/placeholder.svg?height=500&width=500",
       description: "A legendary figure in Nepali music with decades of hit songs and a massive following.",
       socialMedia: {
-        instagram: "#",
-        facebook: "#",
-        youtube: "#",
+        instagram: "https://www.instagram.com/elements.the/",
+        youtube: "https://www.youtube.com/@TheElementsNepal",
       },
     },
     {
       id: 3,
-      name: "Sabin Rai & The Pharaoh",
+      name: "Purna Rai and DajuBhai Haru",
       image: "/placeholder.svg?height=500&width=500",
       description: "Known for their energetic performances and fusion of rock with traditional Nepali sounds.",
       socialMedia: {
-        instagram: "#",
-        facebook: "#",
-        youtube: "#",
+        instagram: "https://www.instagram.com/purna___rai/",
+        youtube: "https://www.youtube.com/@purnarai1997",
       },
     },
     {
       id: 4,
-      name: "Mukti and Revival",
+      name: "Gauley Bhai",
       image: "/placeholder.svg?height=500&width=500",
       description: "Pioneers of Nepali rock music with a career spanning over two decades.",
       socialMedia: {
-        instagram: "#",
-        facebook: "#",
-        youtube: "#",
+        instagram: "https://www.instagram.com/gauleybhai/",
+        youtube: "https://www.youtube.com/@gauleybhai",
       },
-    },
-    {
-      id: 5,
-      name: "Pahenlo Batti Muni",
-      image: "/placeholder.svg?height=500&width=500",
-      description: "An indie band known for their soulful melodies and poetic lyrics.",
-      socialMedia: {
-        instagram: "#",
-        facebook: "#",
-        youtube: "#",
-      },
-    },
-    {
-      id: 6,
-      name: "The Axe Band-Nepali",
-      image: "/placeholder.svg?height=500&width=500",
-      description: "A rock band with a unique sound that blends traditional and modern elements.",
-      socialMedia: {
-        instagram: "#",
-        facebook: "#",
-        youtube: "#",
-      },
-    },
+    }, 
+    
   ]
 
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -182,13 +157,10 @@ function ArtistCard({ artist }) {
       <CardContent className="p-4">
         <p className="mb-4 text-sm text-gray-300">{artist.description}</p>
         <div className="flex gap-3">
-          <a href={artist.socialMedia.instagram} className="text-gray-400 transition-colors hover:text-primary">
+          <a href={artist.socialMedia.instagram} target="_blank" className="text-gray-400 transition-colors hover:text-primary">
             <Instagram className="h-5 w-5" />
           </a>
-          <a href={artist.socialMedia.facebook} className="text-gray-400 transition-colors hover:text-primary">
-            <Facebook className="h-5 w-5" />
-          </a>
-          <a href={artist.socialMedia.youtube} className="text-gray-400 transition-colors hover:text-primary">
+          <a href={artist.socialMedia.youtube} target="_blank" className="text-gray-400 transition-colors hover:text-primary">
             <Youtube className="h-5 w-5" />
           </a>
         </div>
