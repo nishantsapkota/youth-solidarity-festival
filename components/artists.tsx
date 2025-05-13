@@ -21,7 +21,7 @@ export default function Artists() {
       image: "/placeholder.svg?height=500&width=500",
       description: "One of Nepal's most popular hip-hop artists known for his unique style and powerful lyrics.",
       socialMedia: {
-        instagram: "#",
+        instagram: "https://www.instagram.com/johnrai______/",
         youtube: "https://www.youtube.com/@JohnChamlingTV",
       },
     },
