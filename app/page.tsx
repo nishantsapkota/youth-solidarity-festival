@@ -5,7 +5,6 @@ import Schedule from "@/components/schedule"
 import Artists from "@/components/artists"
 import Gallery from "@/components/gallery"
 import Rules from "@/components/rules"
-import Contact from "@/components/contact"
 import Sponsors from "@/components/sponsors"
 
 export default function Home() {
@@ -19,7 +18,6 @@ export default function Home() {
       <Gallery />
       <Sponsors />
       <Rules />
-      <Contact />
     </main>
   )
 }
