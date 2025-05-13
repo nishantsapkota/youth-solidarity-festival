@@ -68,7 +68,7 @@ export default function Venue() {
               </div>
               <div className="flex items-center gap-3">
                 <Users className="h-6 w-6 text-primary" />
-                <span className="text-gray-700">Expected attendance: 3,000+</span>
+                <span className="text-gray-700">Expected attendance: 6,500+</span>
               </div>
             </div>
           </motion.div>
