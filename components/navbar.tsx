@@ -77,11 +77,14 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden md:block z-10">
-            <Button className="bg-primary font-bold text-white hover:bg-primary/90 relative overflow-hidden group">
-              <span className="relative z-10">Buy Tickets</span>
-              <span className="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-300 group-hover:translate-x-0"></span>
-            </Button>
-          </div>
+  <a href="https://events.khalti.com/events/ET256A5QN8J6" target="_blank" rel="noopener noreferrer">
+    <Button className="bg-primary font-bold text-white hover:bg-primary/90 relative overflow-hidden group">
+      <span className="relative z-10">Buy Tickets</span>
+      <span className="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-300 group-hover:translate-x-0"></span>
+    </Button>
+  </a>
+</div>
+
 
           {/* Mobile Menu Button */}
           <button
