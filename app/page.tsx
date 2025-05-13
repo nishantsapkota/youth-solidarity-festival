@@ -3,7 +3,6 @@ import About from "@/components/about"
 import Venue from "@/components/venue"
 import Schedule from "@/components/schedule"
 import Artists from "@/components/artists"
-import Testimonials from "@/components/testimonials"
 import Tickets from "@/components/tickets"
 import Gallery from "@/components/gallery"
 import Rules from "@/components/rules"
@@ -19,7 +18,6 @@ export default function Home() {
       <Schedule />
       <Artists />
       <Gallery />
-      <Testimonials />
       <Tickets />
       <Sponsors />
       <Rules />
