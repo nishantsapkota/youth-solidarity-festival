@@ -170,26 +170,6 @@ export default function Venue() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-12"
         >
-          <div className="rounded-lg bg-white p-6 shadow-md">
-            <h3 className="mb-4 text-xl font-bold text-gray-800">Venue Layout</h3>
-            <div className="relative h-[300px] w-full overflow-hidden rounded-lg">
-              <Image src="/placeholder.svg?height=600&width=1200" alt="Venue Layout" fill className="object-contain" />
-            </div>
-            <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
-              <div className="rounded-md bg-gray-100 p-3 text-center">
-                <p className="font-medium text-gray-800">Stage</p>
-              </div>
-              <div className="rounded-md bg-gray-100 p-3 text-center">
-                <p className="font-medium text-gray-800">Stalls Area</p>
-              </div>
-              <div className="rounded-md bg-gray-100 p-3 text-center">
-                <p className="font-medium text-gray-800">Green Room</p>
-              </div>
-              <div className="rounded-md bg-gray-100 p-3 text-center">
-                <p className="font-medium text-gray-800">Parking</p>
-              </div>
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>
