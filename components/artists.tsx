@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import Image from "next/image"
@@ -18,7 +18,16 @@ export default function Artists() {
     {
       id: 1,
       name: "John Rai and The Locals",
-      image: "/placeholder.svg?height=500&width=500",
+      images: [
+        {
+          src: "/john-rai-logo.jpg?height=500&width=500", 
+          alt: "John Rai and The Locals Logo"
+        },
+        {
+          src: "/john-rai-photo.jpg?height=500&width=500", 
+          alt: "John Rai and The Locals Photo"
+        }
+      ],
       description: "One of Nepal's most popular hip-hop artists known for his unique style and powerful lyrics.",
       socialMedia: {
         instagram: "https://www.instagram.com/johnrai______/",
@@ -28,7 +37,16 @@ export default function Artists() {
     {
       id: 2,
       name: "The Elements",
-      image: "/placeholder.svg?height=500&width=500",
+      images: [
+        {
+          src: "/placeholder.svg?height=500&width=500", 
+          alt: "The Elements Logo"
+        },
+        {
+          src: "/placeholder.svg?height=500&width=500", 
+          alt: "The Elements Photo"
+        }
+      ],
       description: "A legendary figure in Nepali music with decades of hit songs and a massive following.",
       socialMedia: {
         instagram: "https://www.instagram.com/elements.the/",
@@ -38,7 +56,16 @@ export default function Artists() {
     {
       id: 3,
       name: "Purna Rai and DajuBhai Haru",
-      image: "/placeholder.svg?height=500&width=500",
+      images: [
+        {
+          src: "/purna-rai-logo.png?height=500&width=500", 
+          alt: "Purna Rai and DajuBhai Haru Logo"
+        },
+        {
+          src: "/purna-rai-photo.jpg?height=500&width=500", 
+          alt: "Purna Rai and DajuBhai Haru Photo"
+        }
+      ],
       description: "Known for their energetic performances and fusion of rock with traditional Nepali sounds.",
       socialMedia: {
         instagram: "https://www.instagram.com/purna___rai/",
@@ -48,14 +75,22 @@ export default function Artists() {
     {
       id: 4,
       name: "Gauley Bhai",
-      image: "/placeholder.svg?height=500&width=500",
+      images: [
+        {
+          src: "/gauley-bhai-logo.jpg?height=500&width=500", 
+          alt: "Gauley Bhai Logo"
+        },
+        {
+          src: "/gauley-bhai-photo.jpg?height=500&width=500", 
+          alt: "Gauley Bhai Photo"
+        }
+      ],
       description: "Pioneers of Nepali rock music with a career spanning over two decades.",
       socialMedia: {
         instagram: "https://www.instagram.com/gauleybhai/",
         youtube: "https://www.youtube.com/@gauleybhai",
       },
     }, 
-    
   ]
 
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -137,15 +172,36 @@ export default function Artists() {
 }
 
 function ArtistCard({ artist }) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  
+  // Set up the image rotation every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % artist.images.length)
+    }, 2000)
+    
+    // Clean up the interval when component unmounts
+    return () => clearInterval(interval)
+  }, [artist.images.length])
+
   return (
     <Card className="overflow-hidden bg-gray-800 transition-transform duration-300 hover:-translate-y-2">
       <div className="relative h-[300px] w-full overflow-hidden">
-        <Image
-          src={artist.image || "/placeholder.svg"}
-          alt={artist.name}
-          fill
-          className="object-cover transition-transform duration-500 hover:scale-105"
-        />
+        {artist.images.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentImageIndex ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              className="object-cover transition-transform duration-500 hover:scale-105"
+            />
+          </div>
+        ))}
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"></div>
         <div className="absolute bottom-0 left-0 p-4">
           <div className="flex items-center gap-2">
@@ -168,4 +224,3 @@ function ArtistCard({ artist }) {
     </Card>
   )
 }
-
