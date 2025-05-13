@@ -214,7 +214,7 @@ export default function About() {
                     <div className="mt-4 grid grid-cols-2 gap-2">
                       <div className="flex items-center gap-2">
                         <Users className="h-4 w-4 text-primary" />
-                        <span className="text-sm text-gray-600">2,500+ attendees</span>
+                        <span className="text-sm text-gray-600">6,500+ attendees</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Music className="h-4 w-4 text-primary" />
@@ -260,7 +260,7 @@ export default function About() {
           <h3 className="text-2xl font-bold text-center text-gray-800 mb-8">Festival Highlights</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <CounterCard icon={<Music className="h-8 w-8 text-primary" />} value={4} label="Live Performances" />
-            <CounterCard icon={<Users className="h-8 w-8 text-primary" />} value={6000 } label="Expected Attendees" />
+            <CounterCard icon={<Users className="h-8 w-8 text-primary" />} value={6500} label="Expected Attendees" />
             <CounterCard icon={<Calendar className="h-8 w-8 text-primary" />} value={2} label="Days of Celebration" />
             <CounterCard icon={<Store className="h-8 w-8 text-primary" />} value={40} label="Food & Activity Stalls" />
           </div>
