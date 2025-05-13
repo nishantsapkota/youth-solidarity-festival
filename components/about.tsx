@@ -285,7 +285,7 @@ export default function About() {
                 className="w-full h-full object-cover rounded-lg"
               />
             </div>
-            <div className="space-y-4">
+            <div className="space-y-4 justify-center flex items-center">
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
                   <AccordionTrigger className="text-lg font-medium group">
