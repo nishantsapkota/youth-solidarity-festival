@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
@@ -77,11 +77,11 @@ export default function Artists() {
       name: "Gauley Bhai",
       images: [
         {
-          src: "/gauley-bhai-logo.jpg?height=500&width=500", 
+          src: "/gauley-bhai-photo.jpg?height=500&width=500", 
           alt: "Gauley Bhai Logo"
         },
         {
-          src: "/gauley-bhai-photo.jpg?height=500&width=500", 
+          src: "/gauley-bhai-logo.jpg?height=500&width=500", 
           alt: "Gauley Bhai Photo"
         }
       ],
@@ -94,18 +94,29 @@ export default function Artists() {
   ]
 
   const [currentIndex, setCurrentIndex] = useState(0)
-  const itemsPerPage = 3
-  const totalPages = Math.ceil(artists.length / itemsPerPage)
+  const [direction, setDirection] = useState(0)
+  
+  // Create a circular array of visible artists
+  const getVisibleArtists = () => {
+    const result = [];
+    for (let i = 0; i < 3; i++) {
+      const index = (currentIndex + i) % artists.length;
+      result.push(artists[index]);
+    }
+    return result;
+  }
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalPages)
+    setDirection(1);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % artists.length);
   }
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalPages) % totalPages)
+    setDirection(-1);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + artists.length) % artists.length);
   }
 
-  const visibleArtists = artists.slice(currentIndex * itemsPerPage, (currentIndex + 1) * itemsPerPage)
+  const visibleArtists = getVisibleArtists();
 
   return (
     <section id="artists" className="bg-gray-900 py-20 text-white">
@@ -129,21 +140,36 @@ export default function Artists() {
               size="icon"
               className="absolute left-0 top-1/2 z-10 -translate-y-1/2 text-white hover:bg-white/10 md:-left-12"
               onClick={prevSlide}
+              aria-label="Previous artists"
             >
               <ChevronLeft className="h-8 w-8" />
             </Button>
 
             <div className="w-full overflow-hidden">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="grid gap-6 md:grid-cols-3"
-              >
-                {visibleArtists.map((artist) => (
-                  <ArtistCard key={artist.id} artist={artist} />
-                ))}
-              </motion.div>
+              <AnimatePresence initial={false} custom={direction} mode="popLayout">
+                <motion.div
+                  key={currentIndex}
+                  custom={direction}
+                  initial={{ 
+                    x: direction > 0 ? 300 : -300,
+                    opacity: 0
+                  }}
+                  animate={{ 
+                    x: 0,
+                    opacity: 1
+                  }}
+                  exit={{ 
+                    x: direction < 0 ? 300 : -300,
+                    opacity: 0
+                  }}
+                  transition={{ duration: 0.5 }}
+                  className="grid gap-6 md:grid-cols-3"
+                >
+                  {visibleArtists.map((artist) => (
+                    <ArtistCard key={artist.id} artist={artist} />
+                  ))}
+                </motion.div>
+              </AnimatePresence>
             </div>
 
             <Button
@@ -151,6 +177,7 @@ export default function Artists() {
               size="icon"
               className="absolute right-0 top-1/2 z-10 -translate-y-1/2 text-white hover:bg-white/10 md:-right-12"
               onClick={nextSlide}
+              aria-label="Next artists"
             >
               <ChevronRight className="h-8 w-8" />
             </Button>
@@ -158,11 +185,17 @@ export default function Artists() {
         </div>
 
         <div className="mt-8 flex justify-center gap-2">
-          {Array.from({ length: totalPages }).map((_, index) => (
+          {Array.from({ length: artists.length }).map((_, index) => (
             <button
               key={index}
-              className={`h-2 w-8 rounded-full ${currentIndex === index ? "bg-primary" : "bg-gray-600"}`}
-              onClick={() => setCurrentIndex(index)}
+              className={`h-2 w-8 rounded-full ${
+                currentIndex === index ? "bg-primary" : "bg-gray-600"
+              }`}
+              onClick={() => {
+                setDirection(index > currentIndex ? 1 : -1);
+                setCurrentIndex(index);
+              }}
+              aria-label={`Go to artist ${index + 1}`}
             ></button>
           ))}
         </div>
@@ -174,7 +207,7 @@ export default function Artists() {
 function ArtistCard({ artist }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   
-  // Set up the image rotation every 5 seconds
+  // Set up the image rotation every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % artist.images.length)
@@ -213,10 +246,10 @@ function ArtistCard({ artist }) {
       <CardContent className="p-4">
         <p className="mb-4 text-sm text-gray-300">{artist.description}</p>
         <div className="flex gap-3">
-          <a href={artist.socialMedia.instagram} target="_blank" className="text-gray-400 transition-colors hover:text-primary">
+          <a href={artist.socialMedia.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 transition-colors hover:text-primary">
             <Instagram className="h-5 w-5" />
           </a>
-          <a href={artist.socialMedia.youtube} target="_blank" className="text-gray-400 transition-colors hover:text-primary">
+          <a href={artist.socialMedia.youtube} target="_blank" rel="noopener noreferrer" className="text-gray-400 transition-colors hover:text-primary">
             <Youtube className="h-5 w-5" />
           </a>
         </div>
