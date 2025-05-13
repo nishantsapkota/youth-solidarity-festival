@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useEffect, useRef } from "react"
@@ -212,14 +213,14 @@ export default function Hero() {
             </Button>
           </a>
           <a href="#artists">
-          <Button
-            size="lg"
-            variant="outline"
-            className="group relative overflow-hidden border-white text-black hover:bg-gradient-to-r hover:from-white/5 hover:via-white/20 hover:to-white/5"
-          >
-            <span className="relative z-10">LEARN MORE</span>
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-primary/10 via-primary/25 to-primary/10 transition-transform duration-300 group-hover:translate-x-0"></span>
-          </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="group relative overflow-hidden border-white text-black hover:bg-gradient-to-r hover:from-white/5 hover:via-white/20 hover:to-white/5"
+            >
+              <span className="relative z-10">LEARN MORE</span>
+              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-primary/10 via-primary/25 to-primary/10 transition-transform duration-300 group-hover:translate-x-0"></span>
+            </Button>
           </a>
         </motion.div>
 
@@ -255,4 +256,3 @@ export default function Hero() {
     </section>
   )
 }
-
