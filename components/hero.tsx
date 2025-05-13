@@ -210,7 +210,6 @@ export default function Hero() {
             <span className="relative z-10">BUY TICKETS</span>
             <span className="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-300 group-hover:translate-x-0"></span>
           </Button>
-          <a href="#artists">
           <Button
             size="lg"
             variant="outline"
@@ -219,7 +218,6 @@ export default function Hero() {
             <span className="relative z-10">LEARN MORE</span>
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-primary/10 via-primary/25 to-primary/10 transition-transform duration-300 group-hover:translate-x-0"></span>
           </Button>
-          </a>
         </motion.div>
 
         {/* Floating music notes animation */}
