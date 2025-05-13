@@ -28,7 +28,7 @@ export default function Artists() {
           alt: "John Rai and The Locals Photo"
         }
       ],
-      description: "One of Nepal's most popular hip-hop artists known for his unique style and powerful lyrics.",
+      description: "One of Nepal’s most soulful voices, known for his heartfelt lyrics and deeply emotional musical expression.",
       socialMedia: {
         instagram: "https://www.instagram.com/johnrai______/",
         youtube: "https://www.youtube.com/@JohnChamlingTV",
@@ -47,7 +47,7 @@ export default function Artists() {
           alt: "The Elements Photo"
         }
       ],
-      description: "A legendary figure in Nepali music with decades of hit songs and a massive following.",
+      description: "One of Nepal’s most loved indie bands, known for their honest lyrics and a sound that blends folk and rock.",
       socialMedia: {
         instagram: "https://www.instagram.com/elements.the/",
         youtube: "https://www.youtube.com/@TheElementsNepal",
@@ -66,7 +66,7 @@ export default function Artists() {
           alt: "Purna Rai and DajuBhai Haru Photo"
         }
       ],
-      description: "Known for their energetic performances and fusion of rock with traditional Nepali sounds.",
+      description: "A gifted musician from Nepal, known for his raw energy and emotionally charged musical delivery.",
       socialMedia: {
         instagram: "https://www.instagram.com/purna___rai/",
         youtube: "https://www.youtube.com/@purnarai1997",
@@ -85,7 +85,7 @@ export default function Artists() {
           alt: "Gauley Bhai Photo"
         }
       ],
-      description: "Pioneers of Nepali rock music with a career spanning over two decades.",
+      description: "One of Nepal’s most loved indie bands, known for their honest lyrics and a sound that blends folk and rock.",
       socialMedia: {
         instagram: "https://www.instagram.com/gauleybhai/",
         youtube: "https://www.youtube.com/@gauleybhai",
