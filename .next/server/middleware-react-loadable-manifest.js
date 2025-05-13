@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{\"components/hero.tsx -> react-particles\":{\"id\":\"components/hero.tsx -> react-particles\",\"files\":[\"static/chunks/_app-pages-browser_node_modules_pnpm_react-particles_2_12_2_react_19_1_0_node_modules_react-p-eb723e.js\"]},\"components/hero.tsx -> tsparticles\":{\"id\":\"components/hero.tsx -> tsparticles\",\"files\":[\"static/chunks/_app-pages-browser_node_modules_pnpm_tsparticles_3_8_1_node_modules_tsparticles_browser_index_js.js\"]}}"
+self.__REACT_LOADABLE_MANIFEST="{}"
