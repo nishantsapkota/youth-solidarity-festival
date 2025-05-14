@@ -38,12 +38,12 @@ export default function Artists() {
       name: "The Elements",
       images: [
         {
-          src: "/placeholder.svg?height=500&width=500", 
-          alt: "The Elements Logo"
+          src: "/the-elements-photo.jpg?height=500&width=500", 
+          alt: "The Elements Photo"
         },
         {
-          src: "/placeholder.svg?height=500&width=500", 
-          alt: "The Elements Photo"
+          src: "/the-elements-logo.png?height=500&width=500", 
+          alt: "The Elements Logo"
         }
       ],
       description: "One of Nepal's most loved indie bands, known for their honest lyrics and a sound that blends folk and rock.",
