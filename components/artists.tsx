@@ -19,11 +19,11 @@ export default function Artists() {
       name: "John Rai and The Locals",
       images: [
         {
-          src: "/john-rai-logo.jpg?height=500&width=500", 
+          src: "/john-rai-logo.JPG?height=500&width=500",
           alt: "John Rai and The Locals Logo"
         },
         {
-          src: "/john-rai-photo.jpg?height=500&width=500", 
+          src: "/john-rai-photo.JPG?height=500&width=500",
           alt: "John Rai and The Locals Photo"
         }
       ],
@@ -38,11 +38,11 @@ export default function Artists() {
       name: "The Elements",
       images: [
         {
-          src: "/the-elements-photo.jpg?height=500&width=500", 
+          src: "/the-elements-photo.jpg?height=500&width=500",
           alt: "The Elements Photo"
         },
         {
-          src: "/the-elements-logo.png?height=500&width=500", 
+          src: "/the-elements-logo.png?height=500&width=500",
           alt: "The Elements Logo"
         }
       ],
@@ -57,11 +57,11 @@ export default function Artists() {
       name: "Purna Rai and DajuBhai Haru",
       images: [
         {
-          src: "/purna-rai-logo.png?height=500&width=500", 
+          src: "/purna-rai-logo.png?height=500&width=500",
           alt: "Purna Rai and DajuBhai Haru Logo"
         },
         {
-          src: "/purna-rai-photo.jpg?height=500&width=500", 
+          src: "/purna-rai-photo.JPG?height=500&width=500",
           alt: "Purna Rai and DajuBhai Haru Photo"
         }
       ],
@@ -76,11 +76,11 @@ export default function Artists() {
       name: "Gauley Bhai",
       images: [
         {
-          src: "/gauley-bhai-photo.jpg?height=500&width=500", 
+          src: "/gauley-bhai-photo.jpg?height=500&width=500",
           alt: "Gauley Bhai Logo"
         },
         {
-          src: "/gauley-bhai-logo.jpg?height=500&width=500", 
+          src: "/gauley-bhai-logo.jpg?height=500&width=500",
           alt: "Gauley Bhai Photo"
         }
       ],
@@ -89,7 +89,7 @@ export default function Artists() {
         instagram: "https://www.instagram.com/gauleybhai/",
         youtube: "https://www.youtube.com/@gauleybhai",
       },
-    }, 
+    },
   ]
 
   return (
@@ -119,13 +119,13 @@ export default function Artists() {
 
 function ArtistCard({ artist }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  
+
   // Set up the image rotation every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % artist.images.length)
     }, 2000)
-    
+
     // Clean up the interval when component unmounts
     return () => clearInterval(interval)
   }, [artist.images.length])
@@ -136,9 +136,8 @@ function ArtistCard({ artist }) {
         {artist.images.map((image, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentImageIndex ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
+              }`}
           >
             <Image
               src={image.src}
