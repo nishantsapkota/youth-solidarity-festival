@@ -121,7 +121,7 @@ export default function About() {
               >
                 <div className="relative overflow-hidden rounded-lg">
                   <Image
-                    src="/placeholder.svg?height=600&width=1200&text=Festival"
+                    src="/coverpage.jpg?height=600&width=1200&text=Festival"
                     alt="Youth Solidarity Festival"
                     width={1200}
                     height={600}
@@ -205,7 +205,7 @@ export default function About() {
                   </TimelineItem>
 
                   {/* 2023 Event */}
-                  <TimelineItem year="2023" side="left">
+                  <TimelineItem year="2023" side="right">
                     <h3 className="text-xl font-bold text-gray-800 mb-2">Grand Revival</h3>
                     <p className="text-gray-600">
                       The Youth Solidarity Festival returned with renewed vigor, featuring performances from renowned
@@ -239,14 +239,13 @@ export default function About() {
                       with more artists, activities, and opportunities for youth engagement and expression.
                     </p>
                     <Button variant="outline" className="mt-4 group">
-                      <span>Join us in January 2025</span>
+                      <span>Join us in May 2025</span>
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </TimelineItem>
                 </div>
               </motion.div>
-            </TabsContent>
-          </Tabs>
+            </TabsContent>         </Tabs>
         </div>
 
         {/* Key Highlights Section with Counter Animation */}
@@ -278,7 +277,7 @@ export default function About() {
           <div className="grid gap-6 md:grid-cols-2">
             <div className="relative">
               <Image
-                src="/placeholder.svg?height=600&width=800&text=Youth"
+                src="/logo.png?height=600&width=800&text=Youth"
                 alt="Youth Solidarity"
                 width={800}
                 height={600}

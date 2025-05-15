@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import { Ticket } from "lucide-react"
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -82,14 +83,14 @@ export default function Navbar() {
           <div className="hidden md:block z-10">
             <a href="https://events.khalti.com/events/ET256A5QN8J6" target="_blank" rel="noopener noreferrer">
               <Button className="bg-primary font-bold text-white hover:bg-primary/90 relative overflow-hidden group">
-                <span className="relative z-10">Buy Tickets</span>
+                <span className="relative z-10 flex items-center gap-2">
+                  <img src="Khalti_icon_.svg" alt="Logo" className="h-12 w-[full]" />
+                  Buy Tickets
+                </span>
                 <span className="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-300 group-hover:translate-x-0"></span>
               </Button>
             </a>
-          </div>
-
-
-          {/* Mobile Menu Button */}
+          </div>         {/* Mobile Menu Button */}
           <button
             className={`md:hidden ${isScrolled ? "text-gray-900" : "text-white"}`}
             onClick={toggleMenu}
