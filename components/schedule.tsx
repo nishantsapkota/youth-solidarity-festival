@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
-import { Clock, Music, Film, Palette, Users } from "lucide-react"
+import { Clock, Music, Film, Palette, Users, BookOpen, Trophy, Mic, Store } from "lucide-react"
 
 export default function Schedule() {
   const [ref, inView] = useInView({
@@ -27,20 +27,17 @@ export default function Schedule() {
         >
           <h2 className="mb-2 text-3xl font-bold text-gray-900 md:text-4xl">Event Schedule</h2>
           <div className="mx-auto h-1 w-20 bg-primary"></div>
-          <p className="mt-4 text-xl text-gray-600">January 10-12, 2025</p>
+          <p className="mt-4 text-xl text-gray-600">May 30-31, 2025</p>
         </motion.div>
 
         <Tabs defaultValue="day1" className="w-full" onValueChange={setActiveDay}>
           <div className="mb-8 flex justify-center">
-            <TabsList className="grid w-full max-w-md grid-cols-3">
+            <TabsList className="grid w-full max-w-md grid-cols-2">
               <TabsTrigger value="day1" className="text-sm sm:text-base">
-                Day 1
+                May 30 - Literature Day
               </TabsTrigger>
               <TabsTrigger value="day2" className="text-sm sm:text-base">
-                Day 2
-              </TabsTrigger>
-              <TabsTrigger value="day3" className="text-sm sm:text-base">
-                Day 3
+                May 31 - Main Event
               </TabsTrigger>
             </TabsList>
           </div>
@@ -50,32 +47,68 @@ export default function Schedule() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="grid gap-4 md:grid-cols-2"
+              className="space-y-4"
             >
-              <ScheduleCard
-                time="10:00 AM - 12:00 PM"
-                title="Opening Ceremony"
-                description="Official inauguration of Youth Solidarity Festival 2025"
-                icon={<Users className="h-5 w-5" />}
-              />
-              <ScheduleCard
-                time="12:30 PM - 2:30 PM"
-                title="Inter-College Band Competition"
-                description="Preliminary rounds featuring talented college bands"
-                icon={<Music className="h-5 w-5" />}
-              />
-              <ScheduleCard
-                time="3:00 PM - 5:00 PM"
-                title="Film Festival"
-                description="Screening of short films by young filmmakers"
-                icon={<Film className="h-5 w-5" />}
-              />
-              <ScheduleCard
-                time="6:00 PM - 9:00 PM"
-                title="Concert: Day 1"
-                description="Featuring Pahenlo Batti Muni and The Axe Band-Nepali"
-                icon={<Music className="h-5 w-5" />}
-              />
+              <div className="mb-6 rounded-lg bg-primary/10 p-4">
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Literature Festival & Inauguration Ceremony</h3>
+                <p className="text-gray-600 mb-2">
+                  <strong>Venue:</strong> CV Raman Hall, KU
+                </p>
+                <p className="text-gray-600">
+                  <strong>Chief Guest:</strong> Hon. Foreign Minister Dr. Arzu Rana Deuba
+                </p>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-2">
+                <ScheduleCard
+                  time="9:00 AM - 10:00 AM"
+                  title="Registration & Welcome"
+                  description="Participant registration and welcome refreshments"
+                  icon={<Users className="h-5 w-5" />}
+                />
+                <ScheduleCard
+                  time="10:00 AM - 11:00 AM"
+                  title="Inauguration Ceremony"
+                  description="Official inauguration by Hon. Foreign Minister Dr. Arzu Rana Deuba"
+                  icon={<Mic className="h-5 w-5" />}
+                />
+                <ScheduleCard
+                  time="11:00 AM - 12:30 PM"
+                  title="Panel Discussions"
+                  description="Literature, identity, and Nepali culture discussions"
+                  icon={<BookOpen className="h-5 w-5" />}
+                />
+                <ScheduleCard
+                  time="12:30 PM - 1:30 PM"
+                  title="Lunch Break"
+                  description="Networking lunch for participants"
+                  icon={<Users className="h-5 w-5" />}
+                />
+                <ScheduleCard
+                  time="1:30 PM - 3:00 PM"
+                  title="Poetry Recitals"
+                  description="Poetry readings by renowned and emerging poets"
+                  icon={<BookOpen className="h-5 w-5" />}
+                />
+                <ScheduleCard
+                  time="3:00 PM - 4:00 PM"
+                  title="Book Launches"
+                  description="Launch of new publications and literary works"
+                  icon={<BookOpen className="h-5 w-5" />}
+                />
+                <ScheduleCard
+                  time="4:00 PM - 5:00 PM"
+                  title="Youth Competitions"
+                  description="Literary competitions and creative writing contests"
+                  icon={<Trophy className="h-5 w-5" />}
+                />
+                <ScheduleCard
+                  time="5:00 PM - 7:00 PM"
+                  title="Cultural Performances & Exhibitions"
+                  description="Cultural shows and art exhibitions celebrating Nepali heritage"
+                  icon={<Palette className="h-5 w-5" />}
+                />
+              </div>
             </motion.div>
           </TabsContent>
 
@@ -84,66 +117,63 @@ export default function Schedule() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="grid gap-4 md:grid-cols-2"
+              className="space-y-4"
             >
-              <ScheduleCard
-                time="10:00 AM - 12:00 PM"
-                title="Art Exhibition"
-                description="Showcase of artwork by students from the School of Arts"
-                icon={<Palette className="h-5 w-5" />}
-              />
-              <ScheduleCard
-                time="12:30 PM - 2:30 PM"
-                title="Literature Festival"
-                description="Poetry readings and literary discussions"
-                icon={<Users className="h-5 w-5" />}
-              />
-              <ScheduleCard
-                time="3:00 PM - 5:00 PM"
-                title="Inter-College Band Competition"
-                description="Final rounds with the top bands"
-                icon={<Music className="h-5 w-5" />}
-              />
-              <ScheduleCard
-                time="6:00 PM - 9:00 PM"
-                title="Concert: Day 2"
-                description="Featuring Sabin Rai & The Pharaoh and Mukti and Revival"
-                icon={<Music className="h-5 w-5" />}
-              />
-            </motion.div>
-          </TabsContent>
+              <div className="mb-6 rounded-lg bg-primary/10 p-4">
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Youth Solidarity KU Festival 2025</h3>
+                <p className="text-gray-600">
+                  <strong>Venue:</strong> KU Football Ground
+                </p>
+              </div>
 
-          <TabsContent value="day3">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="grid gap-4 md:grid-cols-2"
-            >
-              <ScheduleCard
-                time="10:00 AM - 12:00 PM"
-                title="Youth Conference"
-                description="Panel discussions on youth empowerment and national solidarity"
-                icon={<Users className="h-5 w-5" />}
-              />
-              <ScheduleCard
-                time="12:30 PM - 2:30 PM"
-                title="Award Ceremony"
-                description="Recognizing winners of various competitions"
-                icon={<Users className="h-5 w-5" />}
-              />
-              <ScheduleCard
-                time="3:00 PM - 5:00 PM"
-                title="Theater Sessions"
-                description="Drama performances by university students"
-                icon={<Users className="h-5 w-5" />}
-              />
-              <ScheduleCard
-                time="6:00 PM - 10:00 PM"
-                title="Grand Finale Concert"
-                description="Featuring ASM and Nabin K. Bhattarai"
-                icon={<Music className="h-5 w-5" />}
-              />
+              <div className="grid gap-4 md:grid-cols-2">
+                <ScheduleCard
+                  time="10:00 AM - 12:00 PM"
+                  title="Event Setup & Registration"
+                  description="Participant registration and event ground preparation"
+                  icon={<Users className="h-5 w-5" />}
+                />
+                <ScheduleCard
+                  time="12:00 PM - 2:00 PM"
+                  title="Food Courts & Stalls Opening"
+                  description="Food courts, vendor stalls, and games begin"
+                  icon={<Store className="h-5 w-5" />}
+                />
+                <ScheduleCard
+                  time="2:00 PM - 3:30 PM"
+                  title="John Rai & the Locals"
+                  description="Soulful folk music performance"
+                  icon={<Music className="h-5 w-5" />}
+                />
+                <ScheduleCard
+                  time="4:00 PM - 5:30 PM"
+                  title="Purna Rai & DajuBhai Haru"
+                  description="Energetic rock and contemporary music"
+                  icon={<Music className="h-5 w-5" />}
+                />
+                <ScheduleCard
+                  time="6:00 PM - 7:30 PM"
+                  title="Gauley Bhai"
+                  description="Popular hits and crowd favorites"
+                  icon={<Music className="h-5 w-5" />}
+                />
+                <ScheduleCard
+                  time="8:00 PM - 10:00 PM"
+                  title="Elements"
+                  description="Fusion music and grand finale performance"
+                  icon={<Music className="h-5 w-5" />}
+                />
+              </div>
+
+              <div className="mt-6 rounded-lg bg-gradient-to-r from-primary/10 to-primary/5 p-4">
+                <h4 className="text-lg font-bold text-gray-800 mb-2">Additional Activities Throughout the Day</h4>
+                <ul className="text-gray-600 space-y-1">
+                  <li>• Food Courts with diverse cuisines</li>
+                  <li>• Vendor stalls and exhibitions</li>
+                  <li>• Interactive games and activities</li>
+                  <li>• Photo booths and memory corners</li>
+                </ul>
+              </div>
             </motion.div>
           </TabsContent>
         </Tabs>
@@ -175,4 +205,3 @@ function ScheduleCard({ time, title, description, icon }) {
     </Card>
   )
 }
-
