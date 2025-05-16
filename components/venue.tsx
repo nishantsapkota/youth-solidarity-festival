@@ -109,20 +109,20 @@ export default function Venue() {
           >
             {/* Map container */}
             <div id="ku-map" className="h-full w-full z-10 border-4 border-gray-300"></div>
-            
+
             {/* Fallback if map isn't loaded */}
             {!mapLoaded && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
                 <p className="text-gray-600">Loading map...</p>
               </div>
             )}
-            
+
             {/* Google Maps link button */}
             <div className="absolute bottom-4 right-4 z-20">
-              <a 
-                href="https://maps.app.goo.gl/UHbKMAFdKrZzv6uv7" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://maps.app.goo.gl/UHbKMAFdKrZzv6uv7"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-sm font-medium text-gray-800 shadow-md transition-colors hover:bg-gray-100"
               >
                 <MapPin className="h-4 w-4 text-primary" />
@@ -153,7 +153,7 @@ export default function Venue() {
               </div>
               <div className="flex items-center gap-3">
                 <Calendar className="h-6 w-6 text-primary" />
-                <span className="text-gray-700">January 2025</span>
+                <span className="text-gray-700">May 31, 2025</span>
               </div>
               <div className="flex items-center gap-3">
                 <Users className="h-6 w-6 text-primary" />

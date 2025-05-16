@@ -1,5 +1,4 @@
 "use client"
-
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import Image from "next/image"
@@ -13,6 +12,15 @@ export default function Sponsors() {
     threshold: 0.1,
   })
 
+  // Method 1: Using onClick handler
+  const handleDownload = () => {
+    const link = document.createElement('a')
+    link.href = '/Prospectus.pdf'
+    link.download = 'prospectus.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
 
   return (
     <section id="sponsors" className="bg-white py-20">
@@ -24,10 +32,7 @@ export default function Sponsors() {
           transition={{ duration: 0.6 }}
           className="mb-12 text-center"
         >
-          <h2 className="mb-2 text-3xl font-bold text-gray-900 md:text-4xl">Sponsorships</h2>
-          <div className="mx-auto h-1 w-20 bg-primary"></div>
         </motion.div>
-
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -41,12 +46,24 @@ export default function Sponsors() {
                 Get detailed information about sponsorship benefits, audience demographics, and more.
               </p>
             </div>
-            <Button className="bg-primary font-bold text-white hover:bg-primary/90">
-              <Download className="mr-2 h-4 w-4" /> Download PDF
+
+            {/* Method 1: Using Button with onClick */}
+            <Button
+              onClick={handleDownload}
+              className="bg-primary font-bold text-white hover:bg-primary/90"
+            >
+              <Image
+                src="/Khalti_white_logo.png"
+                alt="Company Logo"
+                width={40}     // Adjust width
+                height={40}    // Adjust height
+                className="mr-2"
+              />
+              Download PDF
             </Button>
+
           </div>
         </motion.div>
-
         <div className="mt-16">
           <h3 className="mb-8 text-center text-2xl font-bold text-gray-800">Our Previous Sponsors</h3>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
@@ -68,4 +85,3 @@ export default function Sponsors() {
     </section>
   )
 }
-

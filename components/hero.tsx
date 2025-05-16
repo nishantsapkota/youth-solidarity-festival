@@ -188,7 +188,7 @@ export default function Hero() {
         >
           <div className="flex items-center justify-center space-x-2">
             <Calendar className="h-5 w-5 text-primary" />
-            <p className="text-xl font-medium text-white md:text-2xl">MAY 31ST 2025</p>
+            <p className="text-xl font-medium text-white md:text-2xl">MAY 31ST</p>
           </div>
           <div className="flex items-center justify-center space-x-2">
             <MapPin className="h-5 w-5 text-primary" />
