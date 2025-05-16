@@ -34,10 +34,10 @@ export default function Schedule() {
           <div className="mb-8 flex justify-center">
             <TabsList className="grid w-full max-w-md grid-cols-2">
               <TabsTrigger value="day1" className="text-sm sm:text-base">
-                May 30 - Literature Day
+                May 30 - Literature Festival
               </TabsTrigger>
               <TabsTrigger value="day2" className="text-sm sm:text-base">
-                May 31 - Main Event
+                May 31 - Live Music
               </TabsTrigger>
             </TabsList>
           </div>

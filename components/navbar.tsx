@@ -58,7 +58,6 @@ export default function Navbar() {
               className={`text-2xl font-bold ${isScrolled ? "text-gray-900" : "text-white"
                 } transition-colors duration-300 group-hover:text-primary`}
             >
-              YSF 2025
             </span>
           </Link>
 

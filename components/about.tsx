@@ -277,7 +277,7 @@ export default function About() {
           <div className="grid gap-6 md:grid-cols-2">
             <div className="relative">
               <Image
-                src="/logo.png?height=600&width=800&text=Youth"
+                src="/mission.jpg?height=600&width=800&text=Youth"
                 alt="Youth Solidarity"
                 width={800}
                 height={600}
