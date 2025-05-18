@@ -52,13 +52,6 @@ export default function Sponsors() {
               onClick={handleDownload}
               className="bg-primary font-bold text-white hover:bg-primary/90"
             >
-              <Image
-                src="/Khalti_white_logo.png"
-                alt="Company Logo"
-                width={40}     // Adjust width
-                height={40}    // Adjust height
-                className="mr-2"
-              />
               Download PDF
             </Button>
 
