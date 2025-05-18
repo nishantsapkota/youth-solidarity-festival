@@ -99,7 +99,7 @@ export default function About() {
 
         {/* Interactive Tabs Section */}
         <div className="mb-16">
-          <Tabs defaultValue="about" className="w-full">
+          <Tabs defaultValue="history" className="w-full">
             <TabsList className="grid w-full grid-cols-3 mb-8">
               <TabsTrigger value="about" className="text-sm sm:text-base">
                 About
@@ -107,7 +107,7 @@ export default function About() {
               <TabsTrigger value="theme" className="text-sm sm:text-base">
                 Theme
               </TabsTrigger>
-              <TabsTrigger value="ry" className="text-sm sm:text-base">
+              <TabsTrigger value="history" className="text-sm sm:text-base">
                 History
               </TabsTrigger>
             </TabsList>
@@ -189,8 +189,13 @@ export default function About() {
             </TabsContent>
 
             <TabsContent value="history">
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-                <div className="relative">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="space-y-6"
+              >
+                <div className="relative py-10">
                   {/* Timeline */}
                   <div className="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 bg-gray-200"></div>
 
@@ -245,7 +250,8 @@ export default function About() {
                   </TimelineItem>
                 </div>
               </motion.div>
-            </TabsContent>         </Tabs>
+            </TabsContent>
+          </Tabs>
         </div>
 
         {/* Key Highlights Section with Counter Animation */}
@@ -408,10 +414,7 @@ export default function About() {
             </div>
           </div>
         </motion.div>
-
-      
       </div>
     </section>
   )
 }
-
