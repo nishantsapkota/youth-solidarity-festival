@@ -128,37 +128,37 @@ export default function Schedule() {
 
               <div className="grid gap-4 md:grid-cols-2">
                 <ScheduleCard
-                  time="10:00 AM - 12:00 PM"
+                  time="TBD"
                   title="Event Setup & Registration"
                   description="Participant registration and event ground preparation"
                   icon={<Users className="h-5 w-5" />}
                 />
                 <ScheduleCard
-                  time="12:00 PM - 2:00 PM"
+                  time="TBD"
                   title="Food Courts & Stalls Opening"
                   description="Food courts, vendor stalls, and games begin"
                   icon={<Store className="h-5 w-5" />}
                 />
                 <ScheduleCard
-                  time="2:00 PM - 3:30 PM"
+                  time="TBD"
                   title="John Rai & the Locals"
                   description="Soulful folk music performance"
                   icon={<Music className="h-5 w-5" />}
                 />
                 <ScheduleCard
-                  time="4:00 PM - 5:30 PM"
+                  time="TBD"
                   title="Purna Rai & DajuBhai Haru"
                   description="Energetic rock and contemporary music"
                   icon={<Music className="h-5 w-5" />}
                 />
                 <ScheduleCard
-                  time="6:00 PM - 7:30 PM"
+                  time="TBD"
                   title="Gauley Bhai"
                   description="Popular hits and crowd favorites"
                   icon={<Music className="h-5 w-5" />}
                 />
                 <ScheduleCard
-                  time="8:00 PM - 10:00 PM"
+                  time="TBD"
                   title="Elements"
                   description="Fusion music and grand finale performance"
                   icon={<Music className="h-5 w-5" />}
