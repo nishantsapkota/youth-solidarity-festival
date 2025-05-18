@@ -83,7 +83,7 @@ export default function Navbar() {
             <a href="https://events.khalti.com/events/ET256A5QN8J6" target="_blank" rel="noopener noreferrer">
               <Button className="bg-primary font-bold text-white hover:bg-primary/90 relative overflow-hidden group">
                 <span className="relative z-10 flex items-center gap-2">
-                  <img src="Khalti_icon_.svg" alt="Logo" className="h-12 w-[full]" />
+                  <img src="Khalti_white_logo.png" alt="Logo" className="h-12 w-[full]" />
                   Buy Tickets
                 </span>
                 <span className="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-300 group-hover:translate-x-0"></span>
