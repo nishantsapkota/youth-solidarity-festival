@@ -13,13 +13,13 @@ export default function Footer() {
               A celebration of youth, creativity, and national solidarity at Kathmandu University, Dhulikhel.
             </p>
             <div className="flex space-x-4">
-              <Link href="https://www.facebook.com/share/1CCnwDXzAc/?mibextid=wwXIfr" className="text-gray-400 transition-colors hover:text-primary">
+              <Link href="https://www.facebook.com/share/1CCnwDXzAc/?mibextid=wwXIfr" target="_blank" className="text-gray-400 transition-colors hover:text-primary">
                 <Facebook className="h-5 w-5" />
               </Link>
-              <Link href="https://www.instagram.com/youthsolidarityatku?igsh=MTVueDljdXlkcmJteA==" className="text-gray-400 transition-colors hover:text-primary">
+              <Link href="https://www.instagram.com/youthsolidarityatku?igsh=MTVueDljdXlkcmJteA==" target="_blank" className="text-gray-400 transition-colors hover:text-primary">
                 <Instagram className="h-5 w-5" />
               </Link>
-              <Link href="https://www.tiktok.com/@youthsolidarityku?_t=ZS-8wSHoxywTnm&_r=1" className="text-gray-400 transition-colors hover:text-primary">
+              <Link href="https://www.tiktok.com/@youthsolidarityku?_t=ZS-8wSHoxywTnm&_r=1" target="_blank" className="text-gray-400 transition-colors hover:text-primary">
                 <FaTiktok className="h-5 w-5" />
               </Link>
             </div>
