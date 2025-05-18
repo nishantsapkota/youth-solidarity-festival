@@ -10,7 +10,9 @@ import { Button } from "@/components/ui/button"
 import { Flag, Heart, Music, Store, Calendar, ArrowRight, Mic, Globe, Palette, ChevronDown } from "lucide-react"
 import { Users } from "lucide-react"
 
-function TimelineItem({ year, side, children }) {
+import { ReactNode } from "react";
+
+function TimelineItem({ year, side, children }: { year: string; side: "left" | "right"; children: ReactNode }) {
   return (
     <motion.div
       initial={{ opacity: 0, x: side === "left" ? -20 : 20 }}
@@ -39,7 +41,7 @@ function TimelineItem({ year, side, children }) {
   )
 }
 
-function CounterCard({ icon, value, label }) {
+function CounterCard({ icon, value, label }: { icon: ReactNode; value: number; label: string }) {
   const [count, setCount] = useState(0)
   const [inViewport, setInViewport] = useState(false)
 
