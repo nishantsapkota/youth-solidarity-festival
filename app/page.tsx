@@ -6,6 +6,7 @@ import Artists from "@/components/artists"
 import Rules from "@/components/rules"
 import Sponsors from "@/components/sponsors"
 import MessageFromClub from "@/components/testimonial"
+import Footer from "@/components/footer"
 
 export default function Home() {
   return (
@@ -18,6 +19,8 @@ export default function Home() {
       <Artists />
       <Sponsors />
       <Rules />
+      <footer id="footer">
+      </footer>
     </main>
   )
 }
