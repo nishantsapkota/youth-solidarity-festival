@@ -1,17 +1,10 @@
 "use client"
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
 import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
 
 export default function Sponsors() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  })
-
   // Method 1: Using onClick handler
   const handleDownload = () => {
     const link = document.createElement('a')
@@ -22,23 +15,51 @@ export default function Sponsors() {
     document.body.removeChild(link)
   }
 
+  // Sponsor data with categories, names, and logo paths
+  const sponsorCategories = [
+    {
+      title: "Powered By:",
+      sponsors: [
+        { id: 1, name: "Evolve Education and Migration", logoPath: "/sponsors/evolve_logo.jpeg", website: "https://evolvemigration.com.au/" },
+      ],
+    },
+    // {
+    //   title: "Travel Partner",
+    //   sponsors: [
+    //     { id: 3, name: "SkyWays", logoPath: "/sponsors/skyways-logo.png", website: "https://skyways.example.com" },
+    //   ],
+    // },
+    // {
+    //   title: "Food Partner",
+    //   sponsors: [
+    //     { id: 4, name: "Tasty Bites", logoPath: "/sponsors/tastybites-logo.png", website: "https://tastybites.example.com" },
+    //   ],
+    // },
+    // {
+    //   title: "Technology Partner",
+    //   sponsors: [
+    //     { id: 5, name: "TechNova", logoPath: "/sponsors/technova-logo.png", website: "https://technova.example.com" },
+    //   ],
+    // },
+    // {
+    //   title: "Media Partner",
+    //   sponsors: [
+    //     { id: 6, name: "MediaMax", logoPath: "/sponsors/mediamax-logo.png", website: "https://mediamax.example.com" },
+    //   ],
+    // },
+  ]
+
   return (
     <section id="sponsors" className="bg-white py-20">
       <div className="container mx-auto px-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 text-center"
-        >
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="rounded-lg bg-gray-50 p-6 shadow-sm"
-        >
+        <div className="mb-12 text-center">
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Sponsors</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            We're grateful to all our sponsors who make this event possible. Their support helps us create an exceptional experience for all attendees.
+          </p>
+        </div>
+
+        <div className="rounded-lg bg-gray-50 p-6 shadow-sm">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div>
               <h3 className="text-xl font-bold text-gray-800">Download Sponsorship Prospectus</h3>
@@ -46,29 +67,50 @@ export default function Sponsors() {
                 Get detailed information about sponsorship benefits, audience demographics, and more.
               </p>
             </div>
-
-            {/* Method 1: Using Button with onClick */}
             <Button
               onClick={handleDownload}
               className="bg-primary font-bold text-white hover:bg-primary/90"
             >
+              <Download className="mr-2 h-4 w-4" />
               Download PDF
             </Button>
-
           </div>
-        </motion.div>
+        </div>
+
         <div className="mt-16">
-          <h3 className="mb-8 text-center text-2xl font-bold text-gray-800">Our Previous Sponsors</h3>
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="flex items-center justify-center">
-                <div className="relative h-20 w-full grayscale transition-all duration-300 hover:grayscale-0">
-                  <Image
-                    src={`/placeholder.svg?height=100&width=200&text=Sponsor ${i}`}
-                    alt={`Sponsor ${i}`}
-                    fill
-                    className="object-contain"
-                  />
+          <div className="space-y-12">
+            {sponsorCategories.map((category, index) => (
+              <div key={index} className="sponsor-category">
+                {/* Left-aligned category title */}
+                <h4 className="text-xl font-semibold text-gray-700 mb-1 text-left">
+                  {category.title}
+                </h4>
+                
+                {/* Sponsors grid using full width */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
+                  {category.sponsors.map((sponsor) => (
+                    <div key={sponsor.id} className="flex items-center justify-center">
+                      <a 
+                        href={sponsor.website} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="block w-full"
+                      >
+                        <div className="relative h-24 w-full">
+                          <Image
+                            src={sponsor.logoPath || `/placeholder.svg?height=100&width=200&text=${sponsor.name}`}
+                            alt={`${sponsor.name} - ${category.title} Sponsor`}
+                            fill
+                            className="object-contain"
+                            onError={(e) => {
+                              e.currentTarget.src = `/placeholder.svg?height=100&width=200&text=${sponsor.name}`;
+                            }}
+                          />
+                        </div>
+                        <p className="mt-2 text-sm text-center font-medium text-black">{sponsor.name}</p>
+                      </a>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
