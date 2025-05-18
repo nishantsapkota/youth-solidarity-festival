@@ -83,7 +83,7 @@ export default function Navbar() {
     rel="noopener noreferrer"
   >
     <Button
-      className="bg-primary font-semibold text-lg text-white hover:bg-primary/90 relative overflow-hidden group"
+      className="bg-primary font-semibold text-white hover:bg-primary/90 relative overflow-hidden group"
     >
       <span className="relative z-10 flex items-center gap-3">
         <img
