@@ -76,17 +76,27 @@ export default function Navbar() {
             </ul>
           </nav>
 
-          <div className="hidden md:block z-10">
-            <a href="https://events.khalti.com/events/ET256A5QN8J6" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-primary font-bold text-white hover:bg-primary/90 relative overflow-hidden group">
-                <span className="relative z-10 flex items-center gap-2">
-                  <img src="/Khalti_white_logo.png" alt="Logo" className="h-6 w-auto" />
-                  Buy Tickets
-                </span>
-                <span className="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-300 group-hover:translate-x-0"></span>
-              </Button>
-            </a>
-          </div>
+          <div className="hidden md:block z-8">
+  <a
+    href="https://events.khalti.com/events/ET256A5QN8J6"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button
+      className="bg-primary font-semibold text-lg text-white hover:bg-primary/90 relative overflow-hidden group"
+    >
+      <span className="relative z-10 flex items-center gap-3">
+        <img
+          src="/Khalti_white_logo.png"
+          alt="Khalti Logo"
+          className="h-12 w-auto"
+        />
+        Buy Tickets
+      </span>
+      <span className="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-300 group-hover:translate-x-0"></span>
+    </Button>
+  </a>
+</div>
 
           {/* Mobile Menu Button */}
           <button
