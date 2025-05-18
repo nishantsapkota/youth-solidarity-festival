@@ -295,7 +295,7 @@ export default function About() {
             <div className="space-y-4 justify-center flex items-center">
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
-                  <AccordionTrigger className="text-lg font-medium group">
+                  <AccordionTrigger className="text-lg font-medium group [&>svg]:text-red-500 ">
                     <div className="flex items-center w-full justify-between">
                       <div className="flex items-center gap-3">
                         <div className="relative">
@@ -312,7 +312,7 @@ export default function About() {
                           Empower Youth Voices
                         </span>
                       </div>
-                      <ChevronDown className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-data-[state=open]:rotate-180" />
+                      {/* <ChevronDown className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-data-[state=open]:rotate-180" /> */}
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
@@ -325,7 +325,7 @@ export default function About() {
                 </AccordionItem>
 
                 <AccordionItem value="item-2">
-                  <AccordionTrigger className="text-lg font-medium group">
+                  <AccordionTrigger className="text-lg font-medium group [&>svg]:text-red-500 ">
                     <div className="flex items-center w-full justify-between">
                       <div className="flex items-center gap-3">
                         <div className="relative">
@@ -342,7 +342,7 @@ export default function About() {
                           Foster Cultural Exchange
                         </span>
                       </div>
-                      <ChevronDown className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-data-[state=open]:rotate-180" />
+                      {/* <ChevronDown className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-data-[state=open]:rotate-180" /> */}
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
@@ -355,7 +355,7 @@ export default function About() {
                 </AccordionItem>
 
                 <AccordionItem value="item-3">
-                  <AccordionTrigger className="text-lg font-medium group">
+                  <AccordionTrigger className="text-lg font-medium group [&>svg]:text-red-500 ">
                     <div className="flex items-center w-full justify-between">
                       <div className="flex items-center gap-3">
                         <div className="relative">
@@ -372,7 +372,7 @@ export default function About() {
                           Promote Artistic Excellence
                         </span>
                       </div>
-                      <ChevronDown className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-data-[state=open]:rotate-180" />
+                      {/* <ChevronDown className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-data-[state=open]:rotate-180" /> */}
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
@@ -384,7 +384,7 @@ export default function About() {
                 </AccordionItem>
 
                 <AccordionItem value="item-4">
-                  <AccordionTrigger className="text-lg font-medium group">
+                  <AccordionTrigger className="text-lg font-medium group [&>svg]:text-red-500 ">
                     <div className="flex items-center w-full justify-between">
                       <div className="flex items-center gap-3">
                         <div className="relative">
@@ -401,7 +401,7 @@ export default function About() {
                           Build Community Solidarity
                         </span>
                       </div>
-                      <ChevronDown className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-data-[state=open]:rotate-180" />
+                      {/* <ChevronDown className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-data-[state=open]:rotate-180" /> */}
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
