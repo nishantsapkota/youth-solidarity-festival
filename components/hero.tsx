@@ -171,7 +171,7 @@ export default function Hero() {
                 variants={letterVariants}
                 initial="hidden"
                 animate="visible"
-                className="text-3xl font-bold text-primary sm:text-4xl md:text-5xl lg:text-6xl"
+                className="text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl"
               >
                 {letter === " " ? "\u00A0" : letter}
               </motion.span>
@@ -188,7 +188,7 @@ export default function Hero() {
         >
           <div className="flex items-center justify-center space-x-2">
             <Calendar className="h-5 w-5 text-primary" />
-            <p className="text-xl font-medium text-white md:text-2xl">MAY 31ST</p>
+            <p className="text-xl font-medium text-white md:text-2xl">MAY 31</p>
           </div>
           <div className="flex items-center justify-center space-x-2">
             <MapPin className="h-5 w-5 text-primary" />

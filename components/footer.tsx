@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { Facebook, Instagram, Twitter, Youtube, Mail, Phone } from "lucide-react"
+import { Facebook, Instagram, Mail, Phone } from "lucide-react"
+import { FaTiktok } from "react-icons/fa"
 
 export default function Footer() {
   return (
@@ -12,17 +13,14 @@ export default function Footer() {
               A celebration of youth, creativity, and national solidarity at Kathmandu University, Dhulikhel.
             </p>
             <div className="flex space-x-4">
-              <Link href="#" className="text-gray-400 transition-colors hover:text-primary">
+              <Link href="https://www.facebook.com/share/1CCnwDXzAc/?mibextid=wwXIfr" className="text-gray-400 transition-colors hover:text-primary">
                 <Facebook className="h-5 w-5" />
               </Link>
-              <Link href="#" className="text-gray-400 transition-colors hover:text-primary">
+              <Link href="https://www.instagram.com/youthsolidarityatku?igsh=MTVueDljdXlkcmJteA==" className="text-gray-400 transition-colors hover:text-primary">
                 <Instagram className="h-5 w-5" />
               </Link>
-              <Link href="#" className="text-gray-400 transition-colors hover:text-primary">
-                <Twitter className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="text-gray-400 transition-colors hover:text-primary">
-                <Youtube className="h-5 w-5" />
+              <Link href="https://www.tiktok.com/@youthsolidarityku?_t=ZS-8wSHoxywTnm&_r=1" className="text-gray-400 transition-colors hover:text-primary">
+                <FaTiktok className="h-5 w-5" />
               </Link>
             </div>
           </div>
@@ -67,7 +65,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2 text-gray-400">
                 <Phone className="h-5 w-5 text-primary" />
-                <span>+977 9812188940</span>
+                <span>+977 9846001076</span>
               </li>
             </ul>
           </div>
@@ -89,4 +87,3 @@ export default function Footer() {
     </footer>
   )
 }
-
