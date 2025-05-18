@@ -5,58 +5,57 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
-import { Ticket } from "lucide-react"
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/#about" },
+    { name: "Events", href: "/#events" },
+    { name: "Artist Lineup", href: "/#artists" },
+    { name: "Sponsors", href: "/#sponsors" },
+    { name: "Contact", href: "/#contact" },
+  ]
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
+      if (window.scrollY > 10) {
+        setIsScrolled(true)
+      } else {
+        setIsScrolled(false)
+      }
     }
+
     window.addEventListener("scroll", handleScroll)
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
   }, [])
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
-
-  const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "About", href: "#about" },
-    { name: "Venue", href: "#venue" },
-    { name: "Schedule", href: "#schedule" },
-    { name: "Artists", href: "#artists" },
-  ]
-
   return (
     <header
-      className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-transparent"
+      className={`fixed top-0 left-0 w-full transition-all duration-300 z-50 ${isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
         }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex h-20 items-center justify-between transition-all duration-300 ease-in-out relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-
-          <Link href="/" className="flex items-center group z-10">
-            <div className="mr-2 h-14 w-20 rounded-full overflow-hidden border-2 border-primary group-hover:scale-110 transition-transform duration-300">
+        <div className="flex items-center justify-between">
+          <Link href="/" className="group relative z-10">
+            <div className={`mr-2 h-14 w-24 rounded-full overflow-hidden border-2 border-primary group-hover:scale-110 transition-transform duration-300 ${isScrolled ? "bg-gray-900" : "bg-white"
+              } flex items-center justify-center`}>
               <Image
                 src="/Youth solidarity fest red (5).png"
                 alt="YSF Logo"
-                width={56}
+                width={80}
                 height={56}
-                className="w-full h-full object-fit"
+                className={`w-20 h-12 object-contain ${isScrolled && "filter brightness-0 invert"}`}
               />
             </div>
-            <span
-              className={`text-2xl font-bold ${isScrolled ? "text-gray-900" : "text-white"
-                } transition-colors duration-300 group-hover:text-primary`}
-            >
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -81,13 +80,15 @@ export default function Navbar() {
             <a href="https://events.khalti.com/events/ET256A5QN8J6" target="_blank" rel="noopener noreferrer">
               <Button className="bg-primary font-bold text-white hover:bg-primary/90 relative overflow-hidden group">
                 <span className="relative z-10 flex items-center gap-2">
-                  <img src="Khalti_white_logo.png" alt="Logo" className="h-12 w-[full]" />
+                  <img src="/Khalti_white_logo.png" alt="Logo" className="h-6 w-auto" />
                   Buy Tickets
                 </span>
                 <span className="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-300 group-hover:translate-x-0"></span>
               </Button>
             </a>
-          </div>         {/* Mobile Menu Button */}
+          </div>
+
+          {/* Mobile Menu Button */}
           <button
             className={`md:hidden ${isScrolled ? "text-gray-900" : "text-white"}`}
             onClick={toggleMenu}
@@ -115,7 +116,14 @@ export default function Navbar() {
                 </li>
               ))}
               <li>
-                <Button className="w-full bg-primary font-bold text-white hover:bg-primary/90">Buy Tickets</Button>
+                <a href="https://events.khalti.com/events/ET256A5QN8J6" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>
+                  <Button className="w-full bg-primary font-bold text-white hover:bg-primary/90">
+                    <span className="flex items-center gap-2">
+                      <img src="/Khalti_white_logo.png" alt="Logo" className="h-6 w-auto" />
+                      Buy Tickets
+                    </span>
+                  </Button>
+                </a>
               </li>
             </ul>
           </div>
@@ -124,4 +132,3 @@ export default function Navbar() {
     </header>
   )
 }
-
