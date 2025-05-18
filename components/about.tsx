@@ -243,10 +243,12 @@ export default function About() {
                       Building on the success of the 2023 revival, the 2025 festival promises to be bigger and better,
                       with more artists, activities, and opportunities for youth engagement and expression.
                     </p>
-                    <Button variant="outline" className="mt-4 group">
-                      <span>Join us in May 2025</span>
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
+                    <a href="https://events.khalti.com/events/ET256A5QN8J6" target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" className="mt-4 group">
+                        <span>Join us in May 2025</span>
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </a>
                   </TimelineItem>
                 </div>
               </motion.div>
