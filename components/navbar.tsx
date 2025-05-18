@@ -31,8 +31,6 @@ export default function Navbar() {
     { name: "Venue", href: "#venue" },
     { name: "Schedule", href: "#schedule" },
     { name: "Artists", href: "#artists" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Tickets", href: "#tickets" },
   ]
 
   return (
