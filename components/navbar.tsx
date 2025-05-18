@@ -46,7 +46,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="group relative z-10">
-            <div className={`mr-2 h-14 w-24 rounded-full overflow-hidden border-2 border-primary group-hover:scale-110 transition-transform duration-300 ${isScrolled ? "bg-gray-900" : "bg-white"
+            <div className={`mr-2 h-14 w-24 rounded-full overflow-hidden border border-primary/30 group-hover:scale-110 transition-transform duration-300 ${isScrolled ? "bg-gray-900" : "bg-white"
               } flex items-center justify-center`}>
               <Image
                 src="/Youth solidarity fest red (5).png"
