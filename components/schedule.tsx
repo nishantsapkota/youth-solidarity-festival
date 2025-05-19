@@ -54,9 +54,9 @@ export default function Schedule() {
                 <p className="text-sm sm:text-base text-gray-600 mb-1 sm:mb-2">
                   <strong>Venue:</strong> CV Raman Hall, KU
                 </p>
-                <p className="text-sm sm:text-base text-gray-600">
+                {/* <p className="text-sm sm:text-base text-gray-600">
                   <strong>Chief Guest:</strong> Hon. Foreign Minister Dr. Arzu Rana Deuba
-                </p>
+                </p> */}
               </div>
 
               <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2">
@@ -182,7 +182,14 @@ export default function Schedule() {
   )
 }
 
-function ScheduleCard({ time, title, description, icon }) {
+interface ScheduleCardProps {
+  time: string;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+}
+
+function ScheduleCard({ time, title, description, icon }: ScheduleCardProps) {
   return (
     <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg">
       <CardContent className="p-0">

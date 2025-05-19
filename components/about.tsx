@@ -124,7 +124,7 @@ export default function About() {
 
         {/* Interactive Tabs Section */}
         <div className="mb-12 sm:mb-16">
-          <Tabs defaultValue="history" className="w-full">
+          <Tabs defaultValue="about" className="w-full">
             <TabsList className="grid w-full grid-cols-3 mb-6 sm:mb-8">
               <TabsTrigger value="about" className="text-sm sm:text-base">
                 About
