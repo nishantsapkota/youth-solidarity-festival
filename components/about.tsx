@@ -19,23 +19,46 @@ function TimelineItem({ year, side, children }: { year: string; side: "left" | "
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className={`relative mb-12 flex ${side === "left" ? "md:flex-row" : "md:flex-row-reverse"} items-center`}
+      className="relative mb-8 sm:mb-12"
     >
-      <div className={`hidden md:block md:w-1/2 ${side === "left" ? "md:text-right md:pr-8" : "md:text-left md:pl-8"}`}>
-        {side === "left" ? (
-          children
-        ) : (
-          <div className="py-4 px-6 bg-primary text-white inline-block rounded-lg font-bold">{year}</div>
-        )}
+      {/* Mobile layout - vertical stack */}
+      <div className="block md:hidden">
+        <div className="flex flex-col">
+          <div className="flex items-center mb-3">
+            <div className="w-4 h-4 rounded-full bg-primary mr-3"></div>
+            <div className="py-2 px-4 bg-primary text-white text-sm rounded-lg font-bold">{year}</div>
+          </div>
+          <div className="pl-7 border-l-2 border-gray-200">
+            <div className="py-4 px-5 bg-white rounded-lg shadow-sm">
+              {children}
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="absolute left-1/2 -translate-x-1/2 z-10">
-        <div className="h-4 w-4 rounded-full bg-primary"></div>
-      </div>
+      {/* Desktop layout - horizontal with left/right alignment (preserved from original) */}
+      <div className="hidden md:block">
+        <div className={`relative flex ${side === "left" ? "md:flex-row" : "md:flex-row-reverse"} items-center`}>
+          <div className={`hidden md:block md:w-1/2 ${side === "left" ? "md:text-right md:pr-8" : "md:text-left md:pl-8"}`}>
+            {side === "left" ? (
+              children
+            ) : (
+              <div className="py-4 px-6 bg-primary text-white inline-block rounded-lg font-bold">{year}</div>
+            )}
+          </div>
 
-      <div className={`w-full md:w-1/2 ${side === "left" ? "md:text-left md:pl-8" : "md:text-right md:pr-8"}`}>
-        <div className="md:hidden py-2 px-4 bg-primary text-white inline-block rounded-lg font-bold mb-4">{year}</div>
-        {side === "left" ? <div className="py-4 px-6 bg-white rounded-lg shadow-sm">{children}</div> : children}
+          <div className="absolute left-1/2 -translate-x-1/2 z-10">
+            <div className="h-4 w-4 rounded-full bg-primary"></div>
+          </div>
+
+          <div className={`w-full md:w-1/2 ${side === "left" ? "md:text-left md:pl-8" : "md:text-right md:pr-8"}`}>
+            {side === "left" ? (
+              <div className="py-4 px-6 bg-primary text-white inline-block rounded-lg font-bold">{year}</div>
+            ) : (
+              <div className="py-4 px-6 bg-white rounded-lg shadow-sm">{children}</div>
+            )}
+          </div>
+        </div>
       </div>
     </motion.div>
   )
@@ -86,23 +109,23 @@ export default function About() {
   })
 
   return (
-    <section id="about" className="bg-white py-20">
-      <div className="container mx-auto px-2">
+    <section id="about" className="bg-white py-12 sm:py-20">
+      <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.6 }}
-          className="mb-12 text-center"
+          className="mb-8 sm:mb-12 text-center"
         >
           <h2 className="mb-2 text-3xl font-bold text-gray-900 md:text-4xl">About The Festival</h2>
           <div className="mx-auto h-1 w-20 bg-primary"></div>
         </motion.div>
 
         {/* Interactive Tabs Section */}
-        <div className="mb-16">
+        <div className="mb-12 sm:mb-16">
           <Tabs defaultValue="history" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-8">
+            <TabsList className="grid w-full grid-cols-3 mb-6 sm:mb-8">
               <TabsTrigger value="about" className="text-sm sm:text-base">
                 About
               </TabsTrigger>
@@ -156,7 +179,7 @@ export default function About() {
                 transition={{ duration: 0.5 }}
                 className="space-y-6"
               >
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                   {["Nationality", "Solidarity", "Unity"].map((value, index) => (
                     <motion.div
                       key={value}
@@ -197,56 +220,54 @@ export default function About() {
                 transition={{ duration: 0.5 }}
                 className="space-y-6"
               >
-                <div className="relative py-10">
-                  {/* Timeline */}
+                <div className="relative py-8 sm:py-10">
+                  {/* Timeline line for desktop - restored exactly as original */}
                   <div className="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 bg-gray-200"></div>
 
-                  {/* 2011-2022 */}
+                  {/* Timeline items */}
                   <TimelineItem year="2011-2022" side="right">
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">Hiatus Period</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">Hiatus Period</h3>
+                    <p className="text-gray-600 text-sm sm:text-base">
                       After the successful inaugural event, the festival went on a hiatus for 13 years due to various
                       circumstances. During this time, the legacy of the first festival continued to inspire the
                       university community.
                     </p>
                   </TimelineItem>
 
-                  {/* 2023 Event */}
                   <TimelineItem year="2023" side="right">
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">Grand Revival</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">Grand Revival</h3>
+                    <p className="text-gray-600 text-sm sm:text-base">
                       The Youth Solidarity Festival returned with renewed vigor, featuring performances from renowned
                       artists such as ASM, Nabin K. Bhattarai, Sabin Rai & The Pharaoh, Mukti and Revival, and more.
                     </p>
                     <div className="mt-4 grid grid-cols-2 gap-2">
                       <div className="flex items-center gap-2">
                         <Users className="h-4 w-4 text-primary" />
-                        <span className="text-sm text-gray-600">6,500+ attendees</span>
+                        <span className="text-xs sm:text-sm text-gray-600">6,500+ attendees</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Music className="h-4 w-4 text-primary" />
-                        <span className="text-sm text-gray-600">6 national artists</span>
+                        <span className="text-xs sm:text-sm text-gray-600">6 national artists</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Store className="h-4 w-4 text-primary" />
-                        <span className="text-sm text-gray-600">60+ stalls</span>
+                        <span className="text-xs sm:text-sm text-gray-600">60+ stalls</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Calendar className="h-4 w-4 text-primary" />
-                        <span className="text-sm text-gray-600">3-day event</span>
+                        <span className="text-xs sm:text-sm text-gray-600">3-day event</span>
                       </div>
                     </div>
                   </TimelineItem>
 
-                  {/* 2025 Event */}
                   <TimelineItem year="2025" side="right">
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">Upcoming Festival</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">Upcoming Festival</h3>
+                    <p className="text-gray-600 text-sm sm:text-base">
                       Building on the success of the 2023 revival, the 2025 festival promises to be bigger and better,
                       with more artists, activities, and opportunities for youth engagement and expression.
                     </p>
                     <a href="https://events.khalti.com/events/ET256A5QN8J6" target="_blank" rel="noopener noreferrer">
-                      <Button variant="outline" className="mt-4 group">
+                      <Button variant="outline" className="mt-4 group text-sm sm:text-base py-1 h-auto sm:h-10">
                         <span>Join us in May 2025</span>
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </Button>
@@ -264,14 +285,14 @@ export default function About() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-16"
+          className="mb-12 sm:mb-16"
         >
-          <h3 className="text-2xl font-bold text-center text-gray-800 mb-8">Festival Highlights</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <CounterCard icon={<Music className="h-8 w-8 text-primary" />} value={4} label="Live Performances" />
-            <CounterCard icon={<Users className="h-8 w-8 text-primary" />} value={6500} label="Expected Attendees" />
-            <CounterCard icon={<Calendar className="h-8 w-8 text-primary" />} value={2} label="Days of Celebration" />
-            <CounterCard icon={<Store className="h-8 w-8 text-primary" />} value={40} label="Food & Activity Stalls" />
+          <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-800 mb-6 sm:mb-8">Festival Highlights</h3>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+            <CounterCard icon={<Music className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />} value={4} label="Live Performances" />
+            <CounterCard icon={<Users className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />} value={6500} label="Expected Attendees" />
+            <CounterCard icon={<Calendar className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />} value={2} label="Days of Celebration" />
+            <CounterCard icon={<Store className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />} value={40} label="Food & Activity Stalls" />
           </div>
         </motion.div>
 
@@ -281,9 +302,9 @@ export default function About() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="rounded-lg bg-gray-50 p-8 shadow-sm"
+          className="rounded-lg bg-gray-50 p-6 sm:p-8 shadow-sm"
         >
-          <h3 className="text-2xl font-bold text-center text-gray-800 mb-8">Our Mission</h3>
+          <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-800 mb-6 sm:mb-8">Our Mission</h3>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="relative">
               <Image
@@ -297,12 +318,12 @@ export default function About() {
             <div className="space-y-4 justify-center flex items-center">
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
-                  <AccordionTrigger className="text-lg font-medium group [&>svg]:text-red-500 ">
+                  <AccordionTrigger className="text-base sm:text-lg font-medium group [&>svg]:text-red-500 ">
                     <div className="flex items-center w-full justify-between">
                       <div className="flex items-center gap-3">
                         <div className="relative">
-                          <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                            <Mic className="h-5 w-5 text-primary" />
+                          <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                            <Mic className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                           </div>
                           <motion.div
                             className="absolute inset-0 rounded-full border border-primary/30"
@@ -314,11 +335,10 @@ export default function About() {
                           Empower Youth Voices
                         </span>
                       </div>
-                      {/* <ChevronDown className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-data-[state=open]:rotate-180" /> */}
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 text-sm sm:text-base">
                       We aim to create a platform where young people can express themselves freely through art, music,
                       literature, and dialogue. By amplifying youth voices, we hope to inspire positive change in
                       society.
@@ -327,12 +347,12 @@ export default function About() {
                 </AccordionItem>
 
                 <AccordionItem value="item-2">
-                  <AccordionTrigger className="text-lg font-medium group [&>svg]:text-red-500 ">
+                  <AccordionTrigger className="text-base sm:text-lg font-medium group [&>svg]:text-red-500 ">
                     <div className="flex items-center w-full justify-between">
                       <div className="flex items-center gap-3">
                         <div className="relative">
-                          <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                            <Globe className="h-5 w-5 text-primary" />
+                          <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                            <Globe className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                           </div>
                           <motion.div
                             className="absolute inset-0 rounded-full border border-primary/30"
@@ -344,11 +364,10 @@ export default function About() {
                           Foster Cultural Exchange
                         </span>
                       </div>
-                      {/* <ChevronDown className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-data-[state=open]:rotate-180" /> */}
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 text-sm sm:text-base">
                       The festival brings together diverse cultural expressions from across Nepal, promoting
                       understanding and appreciation of our rich heritage while building bridges between different
                       communities.
@@ -357,12 +376,12 @@ export default function About() {
                 </AccordionItem>
 
                 <AccordionItem value="item-3">
-                  <AccordionTrigger className="text-lg font-medium group [&>svg]:text-red-500 ">
+                  <AccordionTrigger className="text-base sm:text-lg font-medium group [&>svg]:text-red-500 ">
                     <div className="flex items-center w-full justify-between">
                       <div className="flex items-center gap-3">
                         <div className="relative">
-                          <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                            <Palette className="h-5 w-5 text-primary" />
+                          <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                            <Palette className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                           </div>
                           <motion.div
                             className="absolute inset-0 rounded-full border border-primary/30"
@@ -374,11 +393,10 @@ export default function About() {
                           Promote Artistic Excellence
                         </span>
                       </div>
-                      {/* <ChevronDown className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-data-[state=open]:rotate-180" /> */}
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 text-sm sm:text-base">
                       Through competitions, exhibitions, and performances, we encourage young artists to hone their
                       craft and showcase their talents to a wider audience, fostering a vibrant creative ecosystem.
                     </p>
@@ -386,12 +404,12 @@ export default function About() {
                 </AccordionItem>
 
                 <AccordionItem value="item-4">
-                  <AccordionTrigger className="text-lg font-medium group [&>svg]:text-red-500 ">
+                  <AccordionTrigger className="text-base sm:text-lg font-medium group [&>svg]:text-red-500 ">
                     <div className="flex items-center w-full justify-between">
                       <div className="flex items-center gap-3">
                         <div className="relative">
-                          <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                            <Users className="h-5 w-5 text-primary" />
+                          <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                            <Users className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                           </div>
                           <motion.div
                             className="absolute inset-0 rounded-full border border-primary/30"
@@ -403,11 +421,10 @@ export default function About() {
                           Build Community Solidarity
                         </span>
                       </div>
-                      {/* <ChevronDown className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-data-[state=open]:rotate-180" /> */}
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 text-sm sm:text-base">
                       Beyond entertainment, the festival serves as a catalyst for community building, bringing together
                       students, faculty, local residents, and visitors in a celebration of shared values and
                       aspirations.
