@@ -66,7 +66,7 @@ export default function Hero() {
   }
 
   const titleText = "YOUTH SOLIDARITY"
-  const subtitleText = "FESTIVAL 2025"
+  const subtitleText = "KU FEST 2025"
 
   return (
     <section className="relative w-full overflow-hidden bg-black min-h-screen">
