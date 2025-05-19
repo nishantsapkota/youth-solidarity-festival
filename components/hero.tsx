@@ -182,7 +182,7 @@ export default function Hero() {
                 variants={letterVariants}
                 initial="hidden"
                 animate="visible"
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-primary"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white"
               >
                 {letter === " " ? "\u00A0" : letter}
               </motion.span>
